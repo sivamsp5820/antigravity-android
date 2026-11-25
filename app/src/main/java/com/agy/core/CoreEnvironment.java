@@ -34,10 +34,10 @@ public final class CoreEnvironment {
         // The core's PTY spawner uses $SHELL (or falls back to /bin/bash, which
         // does not exist on Android). Always prefer the runtime/bin/bash bridge
         // (written by ShellBridgeInstaller: it runs under /system/bin/sh, sets
-        // PREFIX/LD_LIBRARY_PATH/LD_PRELOAD for bionic tools, and execs
+        // PREFIX/LD_LIBRARY_PATH/LD_PRELOAD for Bionic tools, and executes
         // $PREFIX/bin/bash), falling back to /system/bin/sh if unavailable.
         // Never point SHELL directly at $PREFIX/bin/bash while LD_LIBRARY_PATH
-        // is cleared for the glibc loader, or bionic bash fails to link
+        // is cleared for the glibc loader, or Bionic bash fails to link
         // libandroid-support.so.
         File prefix = new File(files, com.agy.install.EnvPaths.PREFIX_DIR);
         env.put("PREFIX", prefix.getAbsolutePath());
