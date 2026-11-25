@@ -7,7 +7,7 @@ import com.agy.runtime.RuntimeManager;
 import java.io.File;
 import java.util.Map;
 
-/** Builds the environment for the glibc core child process. */
+/** Builds the environmendfgdfgdft for the glibc core child process. */
 public final class CoreEnvironment {
 
     private static final String TAG = "CoreEnvironment";
