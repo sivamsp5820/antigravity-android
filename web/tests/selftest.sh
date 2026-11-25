@@ -12,6 +12,7 @@ bash "$TMP/web/build.sh"
 after="$(sha256sum "$TMP/web/main.js" | cut -d' ' -f1)"
 [ "$before" = "$after" ] || { echo "web/build.sh modified source main.js" >&2; exit 1; }
 [ -s "$TMP/web/generated/main.js" ] || { echo "generated/main.js missing" >&2; exit 1; }
+grep -Fq 'project-terminal-button' "$TMP/web/generated/main.js" || { echo "project-terminal-button patch missing" >&2; exit 1; }
 grep -Fq 'src="./generated/main.js"' "$TMP/web/index.html"
 
 # Verify no double IIFE wrappers in generated bundles (excluding vendor main.js)

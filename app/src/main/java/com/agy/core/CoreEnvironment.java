@@ -32,14 +32,17 @@ public final class CoreEnvironment {
         env.put("PATH", bin.getAbsolutePath()
                 + (inheritedPath == null || inheritedPath.isEmpty() ? "" : ":" + inheritedPath));
         // The core's PTY spawner uses $SHELL (or falls back to /bin/bash, which
-        // does not exist on Android). Prefer the prefix bash, then the bridge in
-        // runtime/bin, then Android's own sh.
+        // does not exist on Android). Always prefer the runtime/bin/bash bridge
+        // (written by ShellBridgeInstaller: it runs under /system/bin/sh, sets
+        // PREFIX/LD_LIBRARY_PATH/LD_PRELOAD for bionic tools, and execs
+        // $PREFIX/bin/bash), falling back to /system/bin/sh if unavailable.
+        // Never point SHELL directly at $PREFIX/bin/bash while LD_LIBRARY_PATH
+        // is cleared for the glibc loader, or bionic bash fails to link
+        // libandroid-support.so.
         File prefix = new File(files, com.agy.install.EnvPaths.PREFIX_DIR);
-        File prefixBash = new File(prefix, com.agy.install.EnvPaths.BASH_REL);
+        env.put("PREFIX", prefix.getAbsolutePath());
         File runtimeBash = new File(bin, "bash");
-        if (prefixBash.isFile() && prefixBash.canExecute()) {
-            env.put("SHELL", prefixBash.getAbsolutePath());
-        } else if (runtimeBash.isFile() && runtimeBash.canExecute()) {
+        if (runtimeBash.isFile() && runtimeBash.canExecute()) {
             env.put("SHELL", runtimeBash.getAbsolutePath());
         } else {
             env.put("SHELL", "/system/bin/sh");

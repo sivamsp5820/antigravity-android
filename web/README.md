@@ -135,6 +135,9 @@ web/
 3. **Монохроматизация логотипа Eza**:
    - Upstream-логотип Antigravity содержит жестко зашитый многоцветный SVG (`mask0_6153_71`).
    - Патчер заменяет тело компонента `var Eza=...` на монохромный плоский SVG, использующий CSS-токены `text-[#9AA0A6]` (тёмная тема) и `text-[#5F6368]` (светлая тема).
+4. **Кнопка терминала для каждого проекта (`project-terminal-button`)**:
+   - В заголовок проекта в боковой панели (`data-testid="project-header"`) рядом с кнопкой `+` («New Conversation») внедряется кнопка с иконкой `terminal` (`data-testid="project-terminal-button"`).
+   - Кнопка остается видимой на сенсорных экранах (включая Desktop Mode) и открывает терминал в выбранном проекте через `commandsService.executeCommand("openNewTerminalTab")`.
 
 ---
 
