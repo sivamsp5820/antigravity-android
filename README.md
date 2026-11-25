@@ -18,7 +18,7 @@
 
   [![Android](https://img.shields.io/badge/Android-7.0%2B-3DDC84?style=flat-square&logo=android&logoColor=white)](https://android.com)
   [![Arch](https://img.shields.io/badge/ARM64-v8.0--A%2B-blue?style=flat-square)](https://arm.com)
-  [![Release](https://img.shields.io/badge/Version-2.4.1-blueviolet?style=flat-square)](https://github.com/werdio325-png/antigravity-android/releases)
+  [![Release](https://img.shields.io/badge/Version-2.4.1-blueviolet?style=flat-square)](https://github.com/sivamsp5820/antigravity-android/releases)
   [![License](https://img.shields.io/badge/License-Apache_2.0-orange?style=flat-square)](LICENSE)
 
   <br/>
@@ -63,7 +63,7 @@ No PRoot, chroot, or virtualization overhead. Antigravity runs **bare-metal insi
 
 ### Quick Start
 
-1. **Download APK** from [Releases](https://github.com/werdio325-png/antigravity-android/releases):
+1. **Download APK** from [Releases](https://github.com/sivamsp5820/antigravity-android/releases):
    * `antigravity.apk` — standard release (original Google account checks).
    * `antigravity-region-bypass.apk` — release with account eligibility check bypass.
 2. **Grant Storage Permission** (`All Files Access`). *(Optional: enable Shizuku for ADB access)*.
